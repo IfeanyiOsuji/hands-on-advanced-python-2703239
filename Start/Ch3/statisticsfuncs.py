@@ -20,7 +20,17 @@ print(mean_tmax:=statistics.mean(max_temp))
 print(mean_tmin:=statistics.mean(min_temp))
 
 # TODO: calculate the median values for min and max temperatures
-print(statistics.median(max_temp))
-print(statistics.median(min_temp))
+# print(statistics.median(max_temp))
+# print(statistics.median(min_temp))
 
 # TODO: use the standard deviation function to find outlier temperatures
+upper_outlier = mean_tmax + (statistics.stdev(max_temp) * 2)
+lower_outlier = mean_tmin - (statistics.stdev(min_temp) * 2)
+
+# print(upper_outlier)
+# print(lower_outlier)
+
+upper_outlier_temp = [t  for t in max_temp if t > upper_outlier]
+lower_outlier_temp = [t  for t in min_temp if t < lower_outlier]
+print(upper_outlier_temp)
+print(lower_outlier_temp)
